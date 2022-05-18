@@ -1,0 +1,55 @@
+import CellCoordinate.unapply
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
+
+class CellCoordinateSpec extends AnyWordSpec with Matchers {
+
+  "CellCoordinate .apply" when {
+
+    "input is in the format 'x,y'" should {
+
+      "create a CellCoordinate" in {
+        CellCoordinate.apply("1,2") shouldEqual CellCoordinate(1, 2)
+      }
+    }
+
+    "input is in the format 'x , y'" should {
+
+      "create a CellCoordinate" in {
+        CellCoordinate.apply("1 , 2") shouldEqual CellCoordinate(1, 2)
+      }
+    }
+
+    "input is NOT in the format 'x,y'" when {
+
+      "input contains non-digits" should {
+
+        "throw an exception with message" in {
+          val result = intercept[IllegalArgumentException] {
+            CellCoordinate.apply("a,b")
+          }
+
+          result.getMessage shouldEqual "Input contains non-digits"
+        }
+      }
+
+      "input contains more than two comma-separated characters" should {
+
+        "throw an exception with message" in {
+          val result = intercept[IllegalArgumentException] {
+            CellCoordinate.apply("1,2,3,4")
+          }
+
+          result.getMessage shouldEqual "Input contains more than one comma"
+        }
+      }
+    }
+  }
+
+  "CellCoordinate .unapply" should {
+
+    "return a correctly formatted string" in {
+      unapply(CellCoordinate(1,2)) shouldEqual "1,2"
+    }
+  }
+}
