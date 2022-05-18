@@ -1,3 +1,0 @@
-class Bacteria extends App {
-
-}

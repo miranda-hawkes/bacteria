@@ -40,7 +40,7 @@ class CellCoordinateSpec extends AnyWordSpec with Matchers {
             CellCoordinate.apply("1,2,3,4")
           }
 
-          result.getMessage shouldEqual "Input contains more than one comma"
+          result.getMessage shouldEqual "Input should contain one comma"
         }
       }
     }
