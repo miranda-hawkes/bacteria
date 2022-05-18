@@ -8,8 +8,8 @@ object PetriDish {
     )
   }
 
-  def unapply(petriDish: PetriDish): List[String] = {
-    petriDish.bacteria.map(cell => s"${CellCoordinate.unapply(cell)}\n")
+  def unapply(petriDish: PetriDish): String = {
+    petriDish.bacteria.map(cell => CellCoordinate.unapply(cell)).mkString("\n")
   }
 }
 

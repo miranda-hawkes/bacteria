@@ -13,5 +13,5 @@ object CellCoordinate {
       }
   }
 
-  def unapply(coordinate: CellCoordinate): String = s"${coordinate.x},${coordinate.y}"
+  def unapply(coordinate: CellCoordinate): String = s"${coordinate.x} , ${coordinate.y}"
 }

@@ -20,7 +20,7 @@ class CellCoordinateSpec extends AnyWordSpec with Matchers {
       }
     }
 
-    "input is NOT in the format 'x,y'" when {
+    "input is NOT in a valid format" when {
 
       "input contains non-digits" should {
 
@@ -49,7 +49,7 @@ class CellCoordinateSpec extends AnyWordSpec with Matchers {
   "CellCoordinate .unapply" should {
 
     "return a correctly formatted string" in {
-      unapply(CellCoordinate(1,2)) shouldEqual "1,2"
+      unapply(CellCoordinate(1,2)) shouldEqual "1 , 2"
     }
   }
 }
