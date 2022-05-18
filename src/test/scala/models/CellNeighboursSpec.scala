@@ -1,9 +1,11 @@
+package models
+
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
 class CellNeighboursSpec extends AnyWordSpec with Matchers {
 
-  "CellNeighbours .getNeighbourCoordinates" when {
+  "models.CellNeighbours .getNeighbourCoordinates" when {
 
     "original cell coordinates are at least 1,1" should {
 

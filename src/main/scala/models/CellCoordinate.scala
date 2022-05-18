@@ -1,3 +1,5 @@
+package models
+
 case class CellCoordinate(x: Int, y: Int)
 
 object CellCoordinate {

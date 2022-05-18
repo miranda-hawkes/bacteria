@@ -1,3 +1,5 @@
+package models
+
 sealed trait NeighbourCoordinate {
   val xCalculation: Int => Int
   val yCalculation: Int => Int

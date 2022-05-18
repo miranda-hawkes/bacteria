@@ -1,10 +1,12 @@
-import PetriDish.unapply
+package models
+
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
+import models.PetriDish._
 
 class PetriDishSpec extends AnyWordSpec with Matchers {
 
-  "PetriDish .unapply" should {
+  "models.PetriDish .unapply" should {
 
     "return a correctly formatted string" in {
       val input = PetriDish(List(

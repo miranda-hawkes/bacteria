@@ -1,21 +1,23 @@
-import CellCoordinate.unapply
+package models
+
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
+import models.CellCoordinate._
 
 class CellCoordinateSpec extends AnyWordSpec with Matchers {
 
-  "CellCoordinate .apply" when {
+  "models.CellCoordinate .apply" when {
 
     "input is in the format 'x,y'" should {
 
-      "create a CellCoordinate" in {
+      "create a models.CellCoordinate" in {
         CellCoordinate.apply("1,2") shouldEqual CellCoordinate(1, 2)
       }
     }
 
     "input is in the format 'x , y'" should {
 
-      "create a CellCoordinate" in {
+      "create a models.CellCoordinate" in {
         CellCoordinate.apply("1 , 2") shouldEqual CellCoordinate(1, 2)
       }
     }
@@ -46,7 +48,7 @@ class CellCoordinateSpec extends AnyWordSpec with Matchers {
     }
   }
 
-  "CellCoordinate .unapply" should {
+  "models.CellCoordinate .unapply" should {
 
     "return a correctly formatted string" in {
       unapply(CellCoordinate(1,2)) shouldEqual "1 , 2"

@@ -1,4 +1,5 @@
-import PetriDish.unapply
+import models.{CellCoordinate, PetriDish}
+import models.PetriDish._
 
 import scala.annotation.tailrec
 import scala.io.StdIn.readLine

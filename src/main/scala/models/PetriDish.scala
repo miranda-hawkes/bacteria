@@ -1,3 +1,5 @@
+package models
+
 case class PetriDish(bacteria: List[CellCoordinate])
 
 object PetriDish {
