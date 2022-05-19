@@ -100,4 +100,48 @@ class SimulationSpec extends AnyWordSpec with Matchers {
       }
     }
   }
+
+  "Simulation .start" should {
+
+    "correctly execute program and return correct results" in {
+
+      val inputStr =
+        """|1,2
+           |2,2
+           |3,2
+           |1000000001,1000000002
+           |1000000002,1000000002
+           |1000000003,1000000002
+           |end
+        """.stripMargin
+
+      val input = new StringReader(inputStr)
+      val output = new ByteArrayOutputStream()
+
+      Console.withOut(output) {
+        Console.withIn(input)(Simulation.start())
+      }
+
+      output.toString shouldEqual
+        """+==================+
+          |*     Bacteria     *
+          |+==================+
+          |
+          |Press ^C to quit
+          |Enter pairs of coordinates separated by a comma (e.g. 1,2), each followed by enter
+          |When finished type 'end' followed by enter
+          |
+          |
+          |Calculating next generation...
+          |
+          |2 , 1
+          |2 , 2
+          |2 , 3
+          |1000000002 , 1000000001
+          |1000000002 , 1000000002
+          |1000000002 , 1000000003
+          |end
+          |""".stripMargin
+    }
+  }
 }
