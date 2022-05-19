@@ -6,7 +6,7 @@ import models.PetriDish._
 
 class PetriDishSpec extends AnyWordSpec with Matchers {
 
-  "models.PetriDish .unapply" should {
+  "PetriDish .unapply" should {
 
     "return a correctly formatted string" in {
       val input = PetriDish(List(
@@ -17,6 +17,7 @@ class PetriDishSpec extends AnyWordSpec with Matchers {
         CellCoordinate(1000000002, 1000000002),
         CellCoordinate(1000000003, 1000000002)
       ))
+
       val expectedResult =
         """1 , 2
           |2 , 2
@@ -24,6 +25,7 @@ class PetriDishSpec extends AnyWordSpec with Matchers {
           |1000000001 , 1000000002
           |1000000002 , 1000000002
           |1000000003 , 1000000002""".stripMargin
+
       unapply(input) shouldEqual expectedResult
     }
   }

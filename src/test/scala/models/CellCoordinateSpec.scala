@@ -6,18 +6,18 @@ import models.CellCoordinate._
 
 class CellCoordinateSpec extends AnyWordSpec with Matchers {
 
-  "models.CellCoordinate .apply" when {
+  "CellCoordinate .apply" when {
 
     "input is in the format 'x,y'" should {
 
-      "create a models.CellCoordinate" in {
+      "create a CellCoordinate" in {
         CellCoordinate.apply("1,2") shouldEqual CellCoordinate(1, 2)
       }
     }
 
     "input is in the format 'x , y'" should {
 
-      "create a models.CellCoordinate" in {
+      "create a CellCoordinate" in {
         CellCoordinate.apply("1 , 2") shouldEqual CellCoordinate(1, 2)
       }
     }
@@ -48,10 +48,31 @@ class CellCoordinateSpec extends AnyWordSpec with Matchers {
     }
   }
 
-  "models.CellCoordinate .unapply" should {
+  "CellCoordinate .unapply" should {
 
     "return a correctly formatted string" in {
       unapply(CellCoordinate(1,2)) shouldEqual "1 , 2"
+    }
+  }
+
+  "CellCoordinate .sort" should {
+
+    "correctly sort a pair of coordinates by x then y" in {
+      val unsorted = List(
+        CellCoordinate(5, 2),
+        CellCoordinate(5, 1),
+        CellCoordinate(3, 2),
+        CellCoordinate(3, 1)
+      )
+
+      val sorted = List(
+        CellCoordinate(3, 1),
+        CellCoordinate(3, 2),
+        CellCoordinate(5, 1),
+        CellCoordinate(5, 2)
+      )
+
+      unsorted.sorted shouldEqual sorted
     }
   }
 }

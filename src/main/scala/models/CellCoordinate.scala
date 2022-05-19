@@ -1,6 +1,10 @@
 package models
 
-case class CellCoordinate(x: Int, y: Int)
+case class CellCoordinate(x: Int, y: Int) extends Ordered[CellCoordinate] {
+  import scala.math.Ordered.orderingToOrdered
+
+  override def compare(that: CellCoordinate): Int = (this.x, this.y) compare (that.x, that.y)
+}
 
 object CellCoordinate {
   def apply(input: String): CellCoordinate = cleanseInput(input.split(","))

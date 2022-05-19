@@ -59,7 +59,7 @@ class SimulationSpec extends AnyWordSpec with Matchers {
 
       "output correct prompts" in {
         output.toString should (
-          include ("Input should contain one comma") and
+          include ("ERROR: Input should contain one comma") and
           include ("Try again")
         )
       }
@@ -94,7 +94,7 @@ class SimulationSpec extends AnyWordSpec with Matchers {
 
       "output correct prompts" in {
         output.toString should (
-          include ("Coordinates already input") and
+          include ("ERROR: Coordinates already input") and
           include ("Try again")
         )
       }

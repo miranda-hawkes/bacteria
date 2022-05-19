@@ -1,10 +1,10 @@
 package models
 
-case class PetriDish(bacteria: List[CellCoordinate])
+case class PetriDish(liveBacteria: List[CellCoordinate])
 
 object PetriDish {
   def unapply(petriDish: PetriDish): String = {
-    petriDish.bacteria.map(cell => CellCoordinate.unapply(cell)).mkString("\n")
+    petriDish.liveBacteria.map(cell => CellCoordinate.unapply(cell)).mkString("\n")
   }
 }
 
